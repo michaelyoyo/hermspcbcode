@@ -10,12 +10,15 @@ adc = Adafruit_ADS1x15.ADS1115()
 motor_speed = 0
 pwm.set_pwm_freq(600)
 GAIN = 1
+pwm.set_pwm(0,4096,4096)
+
 print('Reading ADS1x15 values, press Ctrl-C to quit...')
 print('| {0:>6} | {1:>6} | {2:>6} | {3:>6} |'.format(*range(4)))
 print('-' * 37)
 while True:
-	if(motor_speed % 20):
-		pwm.set_pwm(5, (4096-motor_speed*409.6), 4096)
+	print motor_speed%20
+	if((motor_speed % 20) == 0):
+		pwm.set_pwm(5, int(4096-motor_speed*409.6), 4096)
 		pwm.set_pwm(4, 2048, 4096)
 	else:
 		pwm.set_pwm(4, 4096, 4096)
