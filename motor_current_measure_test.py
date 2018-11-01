@@ -1,7 +1,7 @@
+from __future__ import division
 import time
 import Adafruit_ADS1x15
 import Adafruit_PCA9685
-from __future__ import division
 
 # Initialise the PCA9685 using the default address (0x40).
 pwm = Adafruit_PCA9685.PCA9685()
