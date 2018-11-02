@@ -19,14 +19,14 @@ print('Reading ADS1x15 values, press Ctrl-C to quit...')
 print('| {0:>6} | {1:>6} |'.format(*range(2)))
 print('-' * 37)
 while True:
-	print motor_speed%20
+	# print motor_speed%20
 	if((motor_speed % 20) == 0):
 		pwm.set_pwm(5, int(4096-motor_speed*409.6), 4095)
 		pwm.set_pwm(3, 1024, 4095)
-		print "ping"
+		# print "ping"
 	else:
-		pwm.set_pwm(3, 256, 4095)
-		print "pong"
+		pwm.set_pwm(3, 0, 4095)
+		# print "pong"
 	values = [0]*2
 	for i in range(2):
 		values[i] = adc.read_adc(i, gain=GAIN)
