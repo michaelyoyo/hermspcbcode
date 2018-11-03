@@ -22,8 +22,7 @@ while True:
     # print motor_speed%20
     if((motor_speed % 20) == 0):
         pwm_start = int(4096-motor_speed*40.96)
-        pwm.set_pwm(8, pwm_start, 4095)
-        print pwm_start
+        pwm.set_pwm(9, pwm_start, 4095)
         pwm.set_pwm(3, 1024, 4095)
         # print "ping"
     else:
